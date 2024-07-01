@@ -1,14 +1,19 @@
 const path = require("path");
-
+var HtmlWebpackPlugin = require("html-webpack-plugin")
 module.exports ={
 
     mode : "development",
     entry : "./src/index.js",
     output:{
-        filename: "main.js",
+        //browser cashed the same file name so if we change in the code the brower still gives old reslt
+        //we burst the cash here we change file name every time and mail.hashvalue.js
+        filename: "main.[contentHash].js",
         path : path.resolve(__dirname,"dist")
     },
-
+    plugins :[new HtmlWebpackPlugin(
+        {
+        template: "./src/template.html"
+})],
     module:{
         rules:[
             {
