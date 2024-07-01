@@ -1,0 +1,1 @@
+alert("meesage form webpack");
