@@ -7,5 +7,15 @@ module.exports ={
     output:{
         filename: "main.js",
         path : path.resolve(__dirname,"dist")
+    },
+
+    module:{
+        rules:[
+            {
+                test: /\.css$/,
+                //order needed css loader inject css in js and style loader loaded in dom
+                use :["style-loader","css-loader"]
+            }
+        ]
     }
 };
